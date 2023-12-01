@@ -253,9 +253,13 @@ public static void main(String[]args) throws Exception{
           defenseplayerone = true;
      }
      else if(optionmenuplayerone == 3){
+         printitems(playeronebag);
          System.out.println("please enter the number one of the items: ");
          int itemchoice = sc2.nextInt();
-         character repChar = editCharacterhealth(benchplayerone.get(p1pick).getName(), benchplayerone.get(p1pick).getAttack(), benchplayerone.get(p1pick).getDefense(), (benchplayerone.get(p1pick).getHealth()+playeronebag.get(itemchoice).getHealthgain()), benchplayertwo.get(p1pick).getSpeed(), deckone, benchplayerone);   
+         System.out.println("which character would you like to apply the item to? ");
+            printdeck(benchplayerone);
+        int itemapply = sc2.nextInt();
+         character repChar = editCharacterhealth(benchplayerone.get(itemapply).getName(), benchplayerone.get(itemapply).getAttack(), benchplayerone.get(itemapply).getDefense(), (benchplayerone.get(itemapply).getHealth()+playeronebag.get(itemchoice).getHealthgain()), benchplayerone.get(itemapply).getSpeed(), deckone, benchplayerone);   
          benchplayerone.set(p1pick,repChar);
          item newitem = new item (playeronebag.get(itemchoice).getName(), playeronebag.get(itemchoice).getHealthgain(), (playeronebag.get(itemchoice).getAmount()-1));
          playeronebag.set(itemchoice,newitem);
